@@ -1,26 +1,21 @@
-import { CsvFileReader } from './CsvFileReader';
+import { MatchReader } from './MatchReader';
 
-const reader = new CsvFileReader('football.csv');
+const reader = new MatchReader('football.csv');
 reader.read();
 
-enum MastchResult {
-  HomeWin = 'H',
-  AwayWin = 'A',
-  Draw = 'D',
-}
+const dateOfFirstMatch = reader.data[0][0];
 
-console.log(reader.data);
+console.log(dateOfFirstMatch);
 
+// let manUnitedWins = 0;
 
-let manUnitedWins = 0;
-
-for (let match of reader.data) {
-  if (
-    (match[1] === 'Man United' && match[5] === MastchResult.HomeWin) ||
-    (match[2] === 'Man United' && match[5] === MastchResult.AwayWin)
-  ) {
-    ++manUnitedWins;
-  }
-}
+// for (let match of reader.data) {
+//   if (
+//     (match[1] === 'Man United' && match[5] === MastchResult.HomeWin) ||
+//     (match[2] === 'Man United' && match[5] === MastchResult.AwayWin)
+//   ) {
+//     ++manUnitedWins;
+//   }
+// }
 
 // console.log(manUnitedWins);

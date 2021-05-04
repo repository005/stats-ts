@@ -8,7 +8,7 @@ export class WinsAnalysis implements Analyzer {
   run(matches: MatchData[]): string {
     let teamWins = 0;
 
-    for (let match of matchReader.matches) {
+    for (let match of matches) {
       if (
         (match[1] === this.team && match[5] === MatchResult.HomeWin) ||
         (match[2] === this.team && match[5] === MatchResult.AwayWin)
@@ -17,6 +17,6 @@ export class WinsAnalysis implements Analyzer {
       }
     }
 
-    return `Team ${this.team} wins ${teamWins} times`;
+    return `Team ${this.team} won ${teamWins} times`;
   }
 }
